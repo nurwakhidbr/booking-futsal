@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://booking-futsal.test';
+$config['base_url'] = 'http://bookingfutsal.test/';
 // $config['base_url'] = 'http://localhost/booking-futsal';
 
 /*
@@ -36,7 +36,7 @@ $config['base_url'] = 'http://booking-futsal.test';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
