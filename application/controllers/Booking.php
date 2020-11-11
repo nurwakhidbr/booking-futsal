@@ -1,0 +1,13 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Auth extends CI_Controller {
+    public function index()
+    {
+        // redirect to data
+    }
+
+    public function data()
+    {
+        echo "Ini halaman data booking";
+    }
+}
