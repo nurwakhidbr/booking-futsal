@@ -8,6 +8,6 @@ class Auth extends CI_Controller {
 
     public function data()
     {
-        echo "Ini halaman data booking";
+        return view('booking/data');
     }
 }
