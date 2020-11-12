@@ -4,11 +4,12 @@ class Booking extends CI_Controller {
     public function index()
     {
         // redirect to data
-        echo "booking.index";
+        redirect('booking/data');
     }
 
     public function data()
     {
-        return view('booking/data');
+        $data['title'] = 'Data Booking';
+        return view('booking/data', $data);
     }
 }
