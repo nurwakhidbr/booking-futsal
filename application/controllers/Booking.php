@@ -10,6 +10,6 @@ class Booking extends CI_Controller {
     public function data()
     {
         $data['title'] = 'Data Booking';
-        return view('booking/data', $data);
+        return view('_operator.booking.data', $data);
     }
 }

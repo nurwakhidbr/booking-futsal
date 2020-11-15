@@ -21,7 +21,7 @@
             </a>
             <ul class="dropdown-menu">
                 {{-- jika login role nya operator & admin --}}
-                <li><a href="#" class="nav-link">Data Booking</a></li>
+                <li><a href="{{ base_url('booking/data') }}" class="nav-link">Data Booking</a></li>
                 <li><a href="#" class="nav-link">Data Member</a></li>
                 <li><a href="#" class="nav-link">Data User</a></li>
                 <li><a href="#" class="nav-link">Data Lapangan</a></li>

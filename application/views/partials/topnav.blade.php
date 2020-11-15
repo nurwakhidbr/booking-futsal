@@ -7,26 +7,23 @@
     <li class="dropdown">
         <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="{{ base_url('assets/img/avatar.png') }}" class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block"></div>
+            <div class="d-sm-none d-lg-inline-block">Nama</div>
         </a>
-        {{-- <div class="dropdown-menu dropdown-menu-right">
+        <div class="dropdown-menu dropdown-menu-right">
             <div class="dropdown-title">
-                @if (Auth::user()->remember_token == NULL)
+                {{-- @if (Auth::user()->remember_token == NULL)
                 <span class="text-danger">Akun Belum Verifikasi</span>
                 @else
+                @endif --}}
                 <span class="text-success">Akun Terverifikasi</span>
-                @endif
             </div>
-            <a href="{{ url('setting') }}" class="dropdown-item has-icon">
+            <a href="{{ base_url('setting') }}" class="dropdown-item has-icon">
                 <i class="fas fa-cog"></i> Settings
             </a>
             <div class="dropdown-divider"></div>
-            <a href="" class="dropdown-item has-icon text-danger">
+            <a href="{{ base_url('auth/logout') }}" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
             </a>
-            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-               @csrf
-            </form>
-        </div> --}}
+        </div>
     </li>
 </ul>

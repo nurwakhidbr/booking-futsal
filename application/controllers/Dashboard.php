@@ -9,11 +9,12 @@ class Dashboard extends CI_Controller {
     
     public function op()
     {
-        return view('operator.dashboard');
+        return view('_operator.dashboard');
     }
-
+    
     public function adm()
     {
         // ini halaman admin
+        return view('_admin.dashboard');
     }
 }
