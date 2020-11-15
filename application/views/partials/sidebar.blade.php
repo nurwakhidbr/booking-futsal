@@ -1,19 +1,19 @@
 <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-        <a href=""></a>
+        <a href="{{ base_url('dashboard') }}">SIFUT</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
-        <a href="">PSB</a>
+        <a href="">SIF</a>
     </div>
     <ul class="sidebar-menu">
         <li class="">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{ base_url('dashboard') }}">
                 <i class="fas fa-fire"></i>
                 <span>Dashboard</span>
             </a>
         </li>
         <li>
-            <a class="nav-link text-danger" onclick="event.preventDefault();document.querySelector('#logout-form').submit();" href="/logout">
+            <a class="nav-link text-danger" href="{{ base_url('auth/logout') }}">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Logout</span>
             </a>
