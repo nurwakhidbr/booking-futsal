@@ -19,7 +19,7 @@
                                 <h4>Total Cash</h4>
                             </div>
                             <div class="card-body">
-                                <p class="small">Rp 12.200.000</p>
+                                <h6>Rp 12.200.000</h6>
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                                 <h4>Operator</h4>
                             </div>
                             <div class="card-body">
-                                <p class="small">12</p>
+                                <h6>12</h6>
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                                 <h4>Member</h4>
                             </div>
                             <div class="card-body">
-                                <p class="small">231</p>
+                                <h6>231</h6>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                                 <h4>Stadion</h4>
                             </div>
                             <div class="card-body">
-                                <p class="small">30</p>
+                                <h6>30</h6>
                             </div>
                         </div>
                     </div>

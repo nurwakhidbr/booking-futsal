@@ -27,7 +27,7 @@
                         <div class="card-body table-responsive">
                             <table class="table table-bordered table-hover table-striped">
                                 <thead>
-                                    <th>No.</th>
+                                    <th width="5%">#</th>
                                     <th>Nama Pemesan</th>
                                     <th>Tempat</th>
                                     <th>Nama Tim</th>
@@ -35,7 +35,7 @@
                                     <th>Mulai</th>
                                     <th>Selesai</th>
                                     <th>Status</th>
-                                    <th>#</th>
+                                    <th width="12%">#</th>
                                 </thead>
                                 <tbody>
                                     <tr>
@@ -46,28 +46,82 @@
                                         <td>16/11/2020</td>
                                         <td>17.00</td>
                                         <td>18.00</td>
-                                        <td><p class="badge badge-warning">Unpaid</p></td>
+                                        <td><div class="badge badge-warning">Unpaid</div></td>
                                         <td>
-                                            <a href="#" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                            <a href="#" title="Hapus" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                            <a href="#" title="Bayar" class="btn btn-icon btn-sm btn-info"><i class="fas fa-hand-holding-usd"></i></a>
                                         </td>
                                     </tr>
+                                    @foreach ($bookings as $booking)
+                                    <tr>
+                                        <td>2.</td>
+                                        <td>{{ $booking->id_user }}</td>
+                                        <td>{{ $booking->id_lapangan }}</td>
+                                        <td>{{ $booking->nama_tim }}</td>
+                                        <td>{{ $booking->tgl }}</td>
+                                        <td>{{ $booking->jam_mulai }}</td>
+                                        <td>{{ $booking->jam_selesai }}</td>
+                                        <td>{{ $booking->status }}</td>
+                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="add-booking" class="modal">
-                <div class="modal-dialog">
+            <div id="add-booking" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="add-booking" aria-hidden="true" data-backdrop="">
+                <div class="modal-dialog modal-sm">
                     <form action="" method="POST" class="modal-content">
                         <div class="modal-header">
-                            <div class="modal-title">Tambah Booking</div>
-                            <button class="close" data-dismiss="modal">&times;</button>
+                            <h5 class="modal-title">Tambah Booking</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="nama">Nama</label>
+                                <label for="nama">Nama Pemesan</label>
                                 <input type="text" name="nama" id="nama" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="tempat">Tempat</label>
+                                {{-- <input type="text" name="nama" id="nama" class="form-control"> --}}
+                                <select name="tempat" id="tempat" class="form-control">
+                                    <option disabled selected>-- Pilih Tempat --</option>
+                                    <option value="Kenari">Kenari</option>
+                                    <option value="Champion">Champion</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tim">Nama Tim</label>
+                                <input type="text" name="tim" id="tim" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="tgl">Tanggal</label>
+                                <input type="date" name="tgl" id="tgl" class="form-control">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="start">Mulai</label>
+                                        <input type="time" name="start" id="start" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="finish">Selesai</label>
+                                        <input type="time" name="finish" id="finish" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div>
+                                <button type="button" class="btn btn-warning" data-dismiss="modal">Batal</button>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-success">Pesan</button>
                             </div>
                         </div>
                     </form>
