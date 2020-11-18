@@ -12,7 +12,6 @@
 	},
 	"require": {
 		"php": ">=5.3.7",
-		"jenssegers/blade": "^1.4",
 		"phpoffice/phpspreadsheet": "^1.15",
 		"mpdf/mpdf": "^8.0"
 	},
