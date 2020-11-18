@@ -19,6 +19,7 @@ class Booking extends CI_Controller {
         $data['title'] = 'Data Booking';
         $data['bookings'] = $this->Booking->getDataBooking();
         // var_dump($data);
-        return view('_operator.booking.data', $data);
+        // return view('_operator.booking.data', $data);
+        $this->template->load('layouts/main', '_operator/booking/data');
     }
 }

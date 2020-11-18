@@ -16,7 +16,7 @@ class Auth extends CI_Controller {
         if ($this->form_validation->run() == false) {
             $data['title'] = 'SI FUTSAL ~ Login Page';
             // $this->load->view('auth/login', $data);
-            return view('auth.login');
+            $this->template->load('layouts/auth', 'auth/login', $data);
         } else {
             // validasi succes
             $this->_login();

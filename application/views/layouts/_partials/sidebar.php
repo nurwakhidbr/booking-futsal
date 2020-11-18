@@ -1,6 +1,6 @@
 <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-        <a href="{{ base_url('dashboard') }}">SIFUT</a>
+        <a href="<?=base_url('dashboard')?>">SIFUT</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
         <a href="">SIF</a>
@@ -8,7 +8,7 @@
     <ul class="sidebar-menu">
         <li class="menu-header">dashboard</li>
         <li class="active">
-            <a class="nav-link" href="{{ base_url('dashboard') }}">
+            <a class="nav-link" href="<?=base_url('dashboard')?>">
                 <i class="fas fa-home"></i>
                 <span>Dashboard</span>
             </a>
@@ -20,13 +20,13 @@
                 <span>Master Data</span>
             </a>
             <ul class="dropdown-menu">
-                {{-- jika login role nya operator & admin --}}
-                <li><a href="{{ base_url('booking/data') }}" class="nav-link">Data Booking</a></li>
+                <!-- jika login role nya operator & admin -->
+                <li><a href="<?=base_url('booking/data')?>" class="nav-link">Data Booking</a></li>
                 <li><a href="#" class="nav-link">Data Member</a></li>
                 <li><a href="#" class="nav-link">Data User</a></li>
                 <li><a href="#" class="nav-link">Data Lapangan</a></li>
                 <li><a href="#" class="nav-link">Data Harga</a></li>
-                {{-- jika login role nya administrator saja --}}
+                <!-- jika login role nya administrator saja -->
                 <li><a href="#" class="nav-link">Data Operator</a></li>
             </ul>
         </li>
@@ -44,7 +44,7 @@
             </a>
         </li>
         <li>
-            <a class="nav-link text-danger" href="{{ base_url('auth/logout') }}">
+            <a class="nav-link text-danger" href="<?=base_url('auth/logout')?>">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Logout</span>
             </a>
