@@ -12,7 +12,7 @@
                     Don't have an account? <a href="#">Create One</a>
                     </div>
                     <div class="simple-footer">
-                    Copyright &copy; AM4K {{ date('Y') }}
+                        Copyright &copy; Si Futsal ~ {{ date('Y') }}
                     </div>
                 </div>
             </div>
