@@ -22,19 +22,26 @@ class Booking extends CI_Controller
         $data['booking'] = $this->Booking_Model->tampil_data()->result();
         $data['booking'] = $this->Booking_Model->getDataBooking();
         $data['users'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('users', ['role_id' => 3])->result();
+        $data['field'] = $this->db->get('tb_lapangan')->result();
         // var_dump($data);
         // return view('_operator.booking.data', $data);
         $this->template->load('layouts/main', '_operator/booking/data', $data);
     }
 
-    public function add_aksi()
+    public function add()
     {
+        $pemesan = $this->input->post('name');
+        $lapangan = $this->input->post('nama_lapangan');
         $nama_tim    = $this->input->post('nama_tim');
         $tgl         = $this->input->post('tgl');
         $jam_mulai   = $this->input->post('jam_mulai');
         $jam_selesai = $this->input->post('jam_selesai');
 
         $data = array(
+            'id_user' => $pemesan,
+            'id_lapangan' => $lapangan,
+            'id_harga' => 1,
             'nama_tim' => $nama_tim,
             'tgl' => $tgl,
             'jam_mulai' => $jam_mulai,

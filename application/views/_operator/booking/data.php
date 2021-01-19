@@ -27,9 +27,11 @@
                             <thead>
                                 <th width="5%">No</th>
                                 <th>Nama Tim</th>
+                                <th>Lapangan</th>
                                 <th>Tanggal</th>
                                 <th>Jam Mulai</th>
                                 <th>Jam Selesai</th>
+                                <th>Harga</th>
                                 <th>Status</th>
                                 <th width="12%">Aksi</th>
                             </thead>
@@ -40,9 +42,11 @@
                                     <tr>
                                         <td><?php echo $no++ ?></td>
                                         <td><?php echo $tb_booking->nama_tim ?></td>
+                                        <td><?php echo $tb_booking->id_lapangan ?></td>
                                         <td><?php echo $tb_booking->tgl ?></td>
                                         <td><?php echo $tb_booking->jam_mulai ?></td>
                                         <td><?php echo $tb_booking->jam_selesai ?></td>
+                                        <td><?php echo $tb_booking->id_harga ?></td>
                                         <td>
                                             <div class="badge badge-success"><?php echo $tb_booking->status ?></div>
                                         </td>
@@ -60,7 +64,7 @@
         </div>
         <div id="add-booking" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="add-booking" aria-hidden="true" data-backdrop="">
             <div class="modal-dialog modal-sm">
-                <form action="<?= base_url('booking/add_aksi'); ?>" method="POST" class="modal-content">
+                <form action="<?= base_url('booking/add'); ?>" method="POST" class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Tambah Booking</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -68,19 +72,24 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <label for="nama">Nama Pemesan</label>
-                            <input type="text" name="name" id="name" class="form-control">
+                            <select name="name" id="name" class="form-control">
+                                <option disabled selected>-- Pilih Pemesan --</option>
+                                <?php foreach ($user as $u) : ?>
+                                    <option value="<?= $u->id ?>"><?= $u->name ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="tempat">Tempat</label> -->
-                        <!-- <input type="text" name="nama" id="nama" class="form-control"> -->
-                        <!-- <select name="nama_lapangan" id="nama_lapangan" class="form-control">
+                            <label for="tempat">Tempat</label>
+                            <select name="nama_lapangan" id="nama_lapangan" class="form-control">
                                 <option disabled selected>-- Pilih Tempat --</option>
-                                <option value="Kenari">Kenari</option>
-                                <option value="Champion">Champion</option>
+                                <?php foreach ($field as $f) : ?>
+                                    <option value="<?= $f->id_lapangan ?>"><?= $f->nama_lapangan ?></option>
+                                <?php endforeach; ?>
                             </select>
-                        </div> -->
+                        </div>
                         <div class="form-group">
                             <label for="tim">Nama Tim</label>
                             <input type="text" name="nama_tim" id="nama_tim" class="form-control">
