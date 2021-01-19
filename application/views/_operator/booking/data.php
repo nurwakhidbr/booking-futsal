@@ -25,31 +25,33 @@
                     <div class="card-body table-responsive">
                         <table class="table table-bordered table-hover table-striped">
                             <thead>
-                                <th width="5%">#</th>
-                                <th>Nama Pemesan</th>
-                                <th>Tempat</th>
+                                <th width="5%">No</th>
                                 <th>Nama Tim</th>
-                                <th>Tgl</th>
-                                <th>Mulai</th>
-                                <th>Selesai</th>
+                                <th>Tanggal</th>
+                                <th>Jam Mulai</th>
+                                <th>Jam Selesai</th>
                                 <th>Status</th>
-                                <th width="12%">#</th>
+                                <th width="12%">Aksi</th>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1.</td>
-                                    <td>Wakhid</td>
-                                    <td>Champions A</td>
-                                    <td>Unisnu</td>
-                                    <td>16/11/2020</td>
-                                    <td>17.00</td>
-                                    <td>18.00</td>
-                                    <td><div class="badge badge-warning">Unpaid</div></td>
-                                    <td>
-                                        <a href="#" title="Hapus" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                                        <a href="#" title="Bayar" class="btn btn-icon btn-sm btn-info"><i class="fas fa-hand-holding-usd"></i></a>
-                                    </td>
-                                </tr>
+                                <?php
+                                $no = 1;
+                                foreach ($booking as $tb_booking) : ?>
+                                    <tr>
+                                        <td><?php echo $no++ ?></td>
+                                        <td><?php echo $tb_booking->nama_tim ?></td>
+                                        <td><?php echo $tb_booking->tgl ?></td>
+                                        <td><?php echo $tb_booking->jam_mulai ?></td>
+                                        <td><?php echo $tb_booking->jam_selesai ?></td>
+                                        <td>
+                                            <div class="badge badge-success"><?php echo $tb_booking->status ?></div>
+                                        </td>
+                                        <td>
+                                            <a href="#" title="Bayar" class="btn btn-icon btn-sm btn-info"><i class="fas fa-hand-holding-usd"></i></a>
+                                            <a href="<?php echo base_url(); ?>Booking/hapus/<?php echo $tb_booking->id_booking ?>" title="Hapus" class="btn btn-icon btn-sm btn-danger float-right ml-2" onclick="javascript: return confirm('Anda yakin ingin menghapus data ini. ?');"><i class="fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -58,7 +60,7 @@
         </div>
         <div id="add-booking" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="add-booking" aria-hidden="true" data-backdrop="">
             <div class="modal-dialog modal-sm">
-                <form action="" method="POST" class="modal-content">
+                <form action="<?= base_url('booking/add_aksi'); ?>" method="POST" class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Tambah Booking</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -66,38 +68,38 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="nama">Nama Pemesan</label>
-                            <input type="text" name="nama" id="nama" class="form-control">
+                            <input type="text" name="name" id="name" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="tempat">Tempat</label>
-                            <!-- <input type="text" name="nama" id="nama" class="form-control"> -->
-                            <select name="tempat" id="tempat" class="form-control">
+                            <label for="tempat">Tempat</label> -->
+                        <!-- <input type="text" name="nama" id="nama" class="form-control"> -->
+                        <!-- <select name="nama_lapangan" id="nama_lapangan" class="form-control">
                                 <option disabled selected>-- Pilih Tempat --</option>
                                 <option value="Kenari">Kenari</option>
                                 <option value="Champion">Champion</option>
                             </select>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label for="tim">Nama Tim</label>
-                            <input type="text" name="tim" id="tim" class="form-control">
+                            <input type="text" name="nama_tim" id="nama_tim" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="tgl">Tanggal</label>
-                            <input type="date" name="tgl" id="tgl" class="form-control">
+                            <input type="date" name="tgl" id="tgl" class="form-control" value="<?= date('d-m-Y') ?>">
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="start">Mulai</label>
-                                    <input type="time" name="start" id="start" class="form-control">
+                                    <input type="time" name="jam_mulai" id="jam_mulai" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="finish">Selesai</label>
-                                    <input type="time" name="finish" id="finish" class="form-control">
+                                    <input type="time" name="jam_selesai" id="jam_selesai" class="form-control">
                                 </div>
                             </div>
                         </div>
